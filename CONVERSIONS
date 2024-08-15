@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string decimalToHexadecimal(int decimal) {
+    string hex = "";
+    char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
+    while (decimal > 0) {
+        int remainder = decimal % 16;
+        hex = hexDigits[remainder] + hex;
+        decimal /= 16;
+    }
+
+    return hex;
+}
+
+int main() {
+    int decimal;
+    cout << "Enter a decimal number: ";
+    cin >> decimal;
+
+    string hex = decimalToHexadecimal(decimal);
+    cout << "Hexadecimal equivalent: " << hex << endl;
+
+    return 0;
+}
